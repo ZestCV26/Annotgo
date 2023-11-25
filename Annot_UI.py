@@ -1,11 +1,6 @@
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-                            QMetaObject, QObject, QPoint, QRect,
-                            QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
-                           QCursor, QFont, QFontDatabase, QGradient,
-                           QIcon, QImage, QKeySequence, QLinearGradient,
-                           QPainter, QPalette, QPixmap, QRadialGradient,
-                           QTransform)
+from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect,
+                            QSize, Qt)
+from PySide6.QtGui import (QCursor, QFont, QIcon)
 from PySide6.QtWidgets import (QApplication, QDockWidget, QFrame, QHBoxLayout,
                                QLayout, QMainWindow, QMenu, QMenuBar,
                                QPushButton, QSizePolicy, QSpacerItem, QStatusBar,
@@ -13,18 +8,8 @@ from PySide6.QtWidgets import (QApplication, QDockWidget, QFrame, QHBoxLayout,
 
 
 class Ui_Annotgo(object):
+    # setupUi
     def __init__(self):
-        # Qframes
-        self.frame_2 = QFrame(self.dockWidgetContents_5)
-        self.frame = QFrame(self.dockWidgetContents_4)
-
-        # Qlayouts
-        self.verticalLayout = None
-        self.dockWidget_2 = None
-        self.dockWidgetContents_5 = None
-        self.verticalLayout_3 = None
-        self.dockWidgetContents_4 = None
-        self.dockWidget = None
         self.menuHelp = None
         self.menuForms = None
         self.menuView = None
@@ -32,7 +17,7 @@ class Ui_Annotgo(object):
         self.menuFile = None
         self.menubar = None
         self.statusbar = None
-        self.imageViewer = None
+        self.Imageviewer = None
         self.verticalSpacer = None
         self.OpenFile = None
         self.Save = None
@@ -46,7 +31,6 @@ class Ui_Annotgo(object):
         self.centralWidget = None
         self.OpenDir = None
 
-    # setupUi
     def setupUi(self, Annotgo):
         if not Annotgo.objectName():
             Annotgo.setObjectName(u"Annotgo")
@@ -163,7 +147,7 @@ class Ui_Annotgo(object):
         self.Draw.setMaximumSize(QSize(50, 50))
         self.Draw.setFocusPolicy(Qt.NoFocus)
         icon5 = QIcon()
-        icon5.addFile("D:/Downloads/icons/bbox.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon5.addFile("./icons/bbox.png", QSize(), QIcon.Normal, QIcon.Off)
         self.Draw.setIcon(icon5)
         self.Draw.setIconSize(QSize(25, 25))
 
@@ -177,7 +161,7 @@ class Ui_Annotgo(object):
         self.Save.setFont(font1)
         self.Save.setFocusPolicy(Qt.NoFocus)
         icon6 = QIcon()
-        icon6.addFile("D:/Downloads/icons/save.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon6.addFile("./icons/save.png", QSize(), QIcon.Normal, QIcon.Off)
         self.Save.setIcon(icon6)
         self.Save.setIconSize(QSize(25, 25))
 
@@ -191,14 +175,14 @@ class Ui_Annotgo(object):
 
         self.horizontalLayout.addWidget(self.sidebar)
 
-        self.imageViewer = QFrame(self.centralWidget)
-        self.imageViewer.setObjectName(u"imageViewer")
-        self.imageViewer.setMinimumSize(QSize(300, 300))
-        self.imageViewer.setMaximumSize(QSize(1344, 756))
-        self.imageViewer.setFrameShape(QFrame.StyledPanel)
-        self.imageViewer.setFrameShadow(QFrame.Sunken)
+        self.Imageviewer = QFrame(self.centralWidget)
+        self.Imageviewer.setObjectName(u"Imageviewer")
+        self.Imageviewer.setMinimumSize(QSize(300, 300))
+        self.Imageviewer.setMaximumSize(QSize(1344, 756))
+        self.Imageviewer.setFrameShape(QFrame.StyledPanel)
+        self.Imageviewer.setFrameShadow(QFrame.Sunken)
 
-        self.horizontalLayout.addWidget(self.imageViewer)
+        self.horizontalLayout.addWidget(self.Imageviewer)
 
         Annotgo.setCentralWidget(self.centralWidget)
         self.statusbar = QStatusBar(Annotgo)
@@ -227,7 +211,7 @@ class Ui_Annotgo(object):
         self.dockWidgetContents_4.setObjectName(u"dockWidgetContents_4")
         self.verticalLayout_3 = QVBoxLayout(self.dockWidgetContents_4)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-
+        self.frame = QFrame(self.dockWidgetContents_4)
         self.frame.setObjectName(u"frame")
         self.frame.setFrameShape(QFrame.VLine)
         self.frame.setFrameShadow(QFrame.Raised)
@@ -245,7 +229,7 @@ class Ui_Annotgo(object):
         self.dockWidgetContents_5.setObjectName(u"dockWidgetContents_5")
         self.verticalLayout = QVBoxLayout(self.dockWidgetContents_5)
         self.verticalLayout.setObjectName(u"verticalLayout")
-
+        self.frame_2 = QFrame(self.dockWidgetContents_5)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setFrameShape(QFrame.VLine)
         self.frame_2.setFrameShadow(QFrame.Raised)
@@ -280,9 +264,6 @@ class Ui_Annotgo(object):
         self.menuForms.setTitle(QCoreApplication.translate("Annotgo", u"Forms", None))
         self.menuHelp.setTitle(QCoreApplication.translate("Annotgo", u"Help", None))
 
-    def pushButtonHandler(self):
-        self.OpenFile
-        pass
 
 if __name__ == "__main__":
     import sys
