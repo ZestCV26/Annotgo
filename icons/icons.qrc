@@ -1,0 +1,22 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>D:/Downloads/icons/bbox.png</file>
+    <file>D:/Downloads/icons/move_2576736.png</file>
+    <file>D:/Downloads/icons/horizontal_slider.png</file>
+    <file>D:/Downloads/icons/save.png</file>
+    <file>D:/Downloads/icons/move.png</file>
+    <file>D:/Downloads/icons/split.png</file>
+    <file>D:/Downloads/icons/vertical_slider.png</file>
+    <file>Annotgo.png</file>
+    <file>cancel.png</file>
+    <file>directory.png</file>
+    <file>image_file.png</file>
+    <file>magk_as_wrong.png</file>
+    <file>next.png</file>
+    <file>pause.png</file>
+    <file>play-button.png</file>
+    <file>previous.png</file>
+    <file>submit.png</file>
+    <file>verified.png</file>
+  </qresource>
+</RCC>
