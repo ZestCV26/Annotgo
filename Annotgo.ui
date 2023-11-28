@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>686</width>
+    <width>733</width>
     <height>500</height>
    </rect>
   </property>
@@ -72,7 +72,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>20</width>
+        <width>50</width>
         <height>300</height>
        </size>
       </property>
@@ -90,7 +90,10 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <layout class="QVBoxLayout" name="Sidebar">
+        <layout class="QVBoxLayout" name="Sidebar" stretch="0,0,0,0,0,0,0">
+         <property name="spacing">
+          <number>5</number>
+         </property>
          <property name="sizeConstraint">
           <enum>QLayout::SetNoConstraint</enum>
          </property>
@@ -223,9 +226,48 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="Draw">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>50</height>
+            </size>
+           </property>
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="icons/icons.qrc">
+             <normaloff>:/icons/D:/Downloads/icons/bbox.png</normaloff>:/icons/D:/Downloads/icons/bbox.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>25</width>
+             <height>25</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="icons/icons.qrc">
+             <normaloff>:/icons/D:/Downloads/icons/save.png</normaloff>:/icons/D:/Downloads/icons/save.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>25</width>
+             <height>25</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -233,6 +275,9 @@
           <spacer name="verticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Expanding</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -248,7 +293,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QFrame" name="Imageviewer">
+     <widget class="QLabel" name="imageViewer">
       <property name="minimumSize">
        <size>
         <width>300</width>
@@ -258,94 +303,22 @@
       <property name="maximumSize">
        <size>
         <width>1344</width>
-        <height>756</height>
-       </size>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="Toolbox">
-      <property name="minimumSize">
-       <size>
-        <width>30</width>
-        <height>300</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>140</width>
         <height>1080</height>
        </size>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+      <property name="text">
+       <string/>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QFrame" name="Lower">
-         <property name="minimumSize">
-          <size>
-           <width>30</width>
-           <height>100</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>140</width>
-           <height>1080</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="Upper">
-         <property name="minimumSize">
-          <size>
-           <width>30</width>
-           <height>200</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>140</width>
-           <height>1080</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>686</width>
+     <width>733</width>
      <height>22</height>
     </rect>
    </property>
@@ -353,6 +326,12 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionopen_file"/>
+    <addaction name="actionopen_dir"/>
+    <addaction name="actionrecent_projects"/>
+    <addaction name="separator"/>
+    <addaction name="actionsave"/>
+    <addaction name="actionchange_save_dir"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -380,6 +359,72 @@
    <addaction name="menuForms"/>
    <addaction name="menuHelp"/>
   </widget>
+  <widget class="QDockWidget" name="classDock">
+   <property name="minimumSize">
+    <size>
+     <width>78</width>
+     <height>50</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>500</width>
+     <height>500</height>
+    </size>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents"/>
+  </widget>
+  <widget class="QDockWidget" name="automationDock">
+   <property name="minimumSize">
+    <size>
+     <width>78</width>
+     <height>50</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>500</width>
+     <height>500</height>
+    </size>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2"/>
+  </widget>
+  <action name="actionopen_file">
+   <property name="text">
+    <string>open file</string>
+   </property>
+  </action>
+  <action name="actionopen_dir">
+   <property name="text">
+    <string>open dir</string>
+   </property>
+  </action>
+  <action name="actionsave">
+   <property name="text">
+    <string>save</string>
+   </property>
+  </action>
+  <action name="actionsave_as">
+   <property name="text">
+    <string>save as</string>
+   </property>
+  </action>
+  <action name="actionrecent_projects">
+   <property name="text">
+    <string>recent projects</string>
+   </property>
+  </action>
+  <action name="actionchange_save_dir">
+   <property name="text">
+    <string>change save dir</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="icons/icons.qrc"/>

@@ -4,8 +4,12 @@ LABEL authors="raraj"
 WORKDIR /Annotgo
 
 COPY ./requirements.txt ./
-COPY ./src ./src
+COPY ./icons ./icons
+COPY ./libs ./libs
+COPY ./Annot_UI.py ./
+COPY ./libs ./libs
+
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", "./src/main.py", "--host", "0.0.0.0", "--port", "80"]
+CMD ["python", "./Annot_UI.py", "--host", "0.0.0.0", "--port", "80"]

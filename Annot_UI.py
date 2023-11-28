@@ -4,33 +4,45 @@ from PySide6.QtGui import (QCursor, QFont, QIcon)
 from PySide6.QtWidgets import (QApplication, QDockWidget, QFrame, QHBoxLayout,
                                QLayout, QMainWindow, QMenu, QMenuBar,
                                QPushButton, QSizePolicy, QSpacerItem, QStatusBar,
-                               QTabWidget, QVBoxLayout, QWidget)
+                               QTabWidget, QVBoxLayout, QWidget, QLabel)
+
+from libs import sideBarApplications
 
 
 class Ui_Annotgo(object):
-    # setupUi
     def __init__(self):
-        self.menuHelp = None
+        self.sidebar = None
+        self.Sidebar = None
+
+        # QPushButtons
+        self.OpenFile = None
+        self.OpenDir = None
+        self.NextFrame = None
+        self.PreviousFrame = None
+        self.Draw = None
+        self.Save = None
+
+        # QMenubar
+        self.menubar = None
+        self.menuFile = None
+        self.menuEdit = None
         self.menuForms = None
         self.menuView = None
-        self.menuEdit = None
-        self.menuFile = None
-        self.menubar = None
-        self.statusbar = None
-        self.Imageviewer = None
+        self.menuHelp = None
+
+        self.horizontalLayout_4 = None
+
+        self.imageViewer = None
         self.verticalSpacer = None
-        self.OpenFile = None
-        self.Save = None
-        self.Draw = None
-        self.PreviousFrame = None
-        self.NextFrame = None
-        self.Sidebar = None
+
         self.verticalLayout_2 = None
-        self.sidebar = None
+
         self.horizontalLayout = None
         self.centralWidget = None
-        self.OpenDir = None
 
+        self.statusbar = None
+
+    # setupUi
     def setupUi(self, Annotgo):
         if not Annotgo.objectName():
             Annotgo.setObjectName(u"Annotgo")
@@ -175,14 +187,12 @@ class Ui_Annotgo(object):
 
         self.horizontalLayout.addWidget(self.sidebar)
 
-        self.Imageviewer = QFrame(self.centralWidget)
-        self.Imageviewer.setObjectName(u"Imageviewer")
-        self.Imageviewer.setMinimumSize(QSize(300, 300))
-        self.Imageviewer.setMaximumSize(QSize(1344, 756))
-        self.Imageviewer.setFrameShape(QFrame.StyledPanel)
-        self.Imageviewer.setFrameShadow(QFrame.Sunken)
+        self.imageViewer = QLabel(self.centralWidget)
+        self.imageViewer.setObjectName(u"imageViewer")
+        self.imageViewer.setMinimumSize(QSize(300, 300))
+        self.imageViewer.setMaximumSize(QSize(1344, 1080))
 
-        self.horizontalLayout.addWidget(self.Imageviewer)
+        self.horizontalLayout.addWidget(self.imageViewer)
 
         Annotgo.setCentralWidget(self.centralWidget)
         self.statusbar = QStatusBar(Annotgo)
@@ -248,6 +258,7 @@ class Ui_Annotgo(object):
         self.retranslateUi(Annotgo)
 
         QMetaObject.connectSlotsByName(Annotgo)
+        self.pushButtonHandler()
 
     # retranslateUi
     def retranslateUi(self, Annotgo):
@@ -263,6 +274,12 @@ class Ui_Annotgo(object):
         self.menuView.setTitle(QCoreApplication.translate("Annotgo", u"View", None))
         self.menuForms.setTitle(QCoreApplication.translate("Annotgo", u"Forms", None))
         self.menuHelp.setTitle(QCoreApplication.translate("Annotgo", u"Help", None))
+
+    def pushButtonHandler(self):
+        self.OpenFile.clicked.connect(lambda: sideBarApplications.getImageFile(self.imageViewer))
+        self.OpenDir.clicked.connect(lambda: sideBarApplications.getImageFolder(self.imageViewer))
+        self.NextFrame.clicked.connect(lambda: sideBarApplications.getNextImg(self.imageViewer))
+        self.PreviousFrame.clicked.connect(lambda: sideBarApplications.getPrevImg(self.imageViewer))
 
 
 if __name__ == "__main__":
